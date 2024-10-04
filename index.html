@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+    <form action="" method="POST" class="form_sign" id="form_sign">
+        <div class="text_welcome">
+            <span><h3>Welcome</h3></span>
+            <span><p>We are happy to have you back!</p></span>
+        </div>
+
+        <div>
+            <input type="text" name="name" id="name" placeholder="Name">
+        </div>
+
+        <div>
+            <input placeholder="E-mail" id="email" name="email" type="email"/>
+        </div>
+
+        <div>
+            <input placeholder="Password" id="password" name="password" type="password"/>
+        </div>
+
+        <div><input type="password" name="password_confirm" id="password_confirm" placeholder="Confirm Password"></div>
+        
+        <div>
+            <button class="sign_btn" type="button" id="signup_btn" onclick="">Sign up</button>
+        </div>
+
+        <div class="div_text_pre_google">
+            <p class="text_pre_google">
+                Or
+            </p>
+        </div>
+
+        <div class="btn_google">
+            <button class="btn_google_submit" id="google" type="button">
+                <span><img src="./img/google-icon-logo-svgrepo-com.svg"/></span>
+                <span><p>Faça login com google</p></span>
+            </button>
+        </div>
+    </form>
+</center>
+
+<script src="
+https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js
+"></script>
+    
+<script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+    
+    const key = 'xxx';
+
+    const url = 'xxx';
+    const supabase = createClient(url, key);
+
+    async function google_auth() {
+
+        
+        const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google'
+        });
+    }
+
+    async function singup() {
+        var name_form = document.getElementById('name')
+        var email_form = document.getElementById('email')
+        var password_form = document.getElementById('password')
+        var password_form_confirm = document.getElementById('password_confirm')
+
+        if (password_form.value != password_form_confirm.value) {
+            const { data, error } = await supabase.auth.signUp({
+            email: email_form.value,
+            password: password_form.value,
+        })
+        } else {
+            return true;
+        }
+    }
+
+    async function validate_password() {
+        
+    }
+
+    document.getElementById('signup_btn').addEventListener('click', singup)
+
+    document.getElementById('google').addEventListener('click', google_auth)
+
+    console.log(singin())
+</script>
+</body>
+</html>
