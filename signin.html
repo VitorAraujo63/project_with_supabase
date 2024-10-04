@@ -23,7 +23,7 @@
         </div>
         
         <div>
-            <button class="sign_btn" type="button" id="signup_btn" onclick="">Sign up</button>
+            <button class="sign_btn" type="button" id="signup_btn" onclick="">Sign In</button>
         </div>
 
         <div class="div_text_pre_google">
@@ -37,6 +37,9 @@
                 <span><img src="./img/google-icon-logo-svgrepo-com.svg"/></span>
                 <span><p>Faça login com google</p></span>
             </button>
+            <div>
+                <button class="sign_btn"><a href="index.html">Sign Up</a></button>
+            </div>
         </div>
     </form>
 </center>
@@ -48,9 +51,9 @@ https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.
 <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
     
-    const key = 'xxx';
+    const key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNoZndybnJoZmVteWJqb3ZsZnB1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc4ODA1NzYsImV4cCI6MjA0MzQ1NjU3Nn0.wHbQHu7wyamEoXc6pJ_VJ3xp95VCLVK_ON9pLpjP10Y';
 
-    const url = 'xxx';
+    const url = 'https://shfwrnrhfemybjovlfpu.supabase.co';
     const supabase = createClient(url, key);
 
     async function google_auth() {
